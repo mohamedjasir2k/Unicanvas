@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0824">
+  <title>UniCanvas — One Space. Every Idea.</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+
+  <div class="background-orb orb-one"></div>
+  <div class="background-orb orb-two"></div>
+  <div class="background-orb orb-three"></div>
+
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="brand">
+        <div class="brand-icon">✦</div>
+        <div>
+          <h1>UniCanvas</h1>
+          <span>One Space. Every Idea.</span>
+        </div>
+      </div>
+
+      <nav>
+        <button class="nav-item active" data-page="home">
+          <span>⌂</span> Home
+        </button>
+
+        <button class="nav-item" data-page="explore">
+          <span>⌕</span> Explore
+        </button>
+
+        <button class="nav-item" data-page="ai">
+          <span>✦</span> AI
+        </button>
+
+        <button class="nav-item" data-page="watch">
+          <span>▶</span> Watch
+        </button>
+
+        <button class="nav-item" data-page="inspire">
+          <span>✧</span> Inspire
+        </button>
+
+        <button class="nav-item" data-page="create">
+          <span>＋</span> Create
+        </button>
+
+        <button class="nav-item" data-page="showcase">
+          <span>◈</span> Showcase
+        </button>
+
+        <button class="nav-item" data-page="connect">
+          <span>♡</span> Connect
+        </button>
+
+        <div class="nav-divider"></div>
+
+        <button class="nav-item" data-page="notes">
+          <span>▤</span> Notes
+        </button>
+
+        <button class="nav-item" data-page="tasks">
+          <span>✓</span> Tasks
+        </button>
+        <button class="nav-item" data-page="savedResources">
+  <span>🔖</span>
+  <span>Saved Resources</span>
+</button>
+        <button class="nav-item" data-page="focus">
+          <span>◷</span> Focus
+        </button>
+
+        <button class="nav-item" data-page="profile">
+          <span>◎</span> Profile
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="mini-status">
+          <span class="status-dot"></span>
+          <div>
+            <strong>Purpose Mode</strong>
+            <small>Designed for focus</small>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+
+    <!-- MAIN AREA -->
+    <main class="main">
+
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+
+        <div class="mobile-logo">
+          <strong>UniCanvas</strong>
+        </div>
+
+        <div class="top-search">
+          <span>⌕</span>
+          <input id="globalSearch" type="text" placeholder="Search ideas, creators, projects...">
+        </div>
+
+        <div class="top-actions">
+          <button class="icon-button" title="Notifications">♢</button>
+          <button class="profile-button" data-page="profile">U</button>
+        </div>
+      </header>
+
+
+      <!-- ================= HOME ================= -->
+      <section class="page active" id="home">
+
+        <div class="hero">
+
+          <div class="hero-text">
+            <span class="eyebrow">YOUR DIGITAL CANVAS</span>
+
+            <h2>
+              One space.<br>
+              <span>Every idea.</span>
+            </h2>
+
+            <p>
+              Explore, learn, create and connect without constantly
+              jumping between different apps.
+            </p>
+
+            <div class="hero-buttons">
+              <button class="primary-btn" data-page="create">
+                ✦ Start Creating
+              </button>
+
+              <button class="secondary-btn" data-page="explore">
+                Explore UniCanvas →
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="orbit orbit-1"></div>
+            <div class="orbit orbit-2"></div>
+            <div class="planet">
+              <span>✦</span>
+            </div>
+
+            <div class="floating-card card-a">
+              <b>Explore</b>
+              <small>Discover something new</small>
+            </div>
+
+            <div class="floating-card card-b">
+              <b>Create</b>
+              <small>Turn ideas into reality</small>
+            </div>
+
+            <div class="floating-card card-c">
+              <b>Connect</b>
+              <small>Share your talent</small>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">YOUR SPACE</span>
+            <h3>What are you working on?</h3>
+          </div>
+
+          <button class="text-btn" id="newProjectBtn">＋ New project</button>
+        </div>
+
+        <div class="project-grid" id="projectGrid">
+
+          <div class="project-card science">
+            <div class="project-icon">🔬</div>
+            <div>
+              <span>PROJECT</span>
+              <h4>Science Discovery</h4>
+              <p>Research • Ideas • Notes</p>
+            </div>
+            <button class="open-project">→</button>
+          </div>
+
+          <div class="project-card creative">
+            <div class="project-icon">🎨</div>
+            <div>
+              <span>CREATIVE</span>
+              <h4>My Creative Space</h4>
+              <p>Stories • Art • Poems</p>
+            </div>
+            <button class="open-project">→</button>
+          </div>
+
+          <div class="project-card empty-project" id="addProjectCard">
+            <div class="plus-circle">＋</div>
+            <h4>Create a workspace</h4>
+            <p>Bring everything for one goal together.</p>
+          </div>
+
+        </div>
+
+
+        <div class="quick-section">
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">QUICK ACCESS</span>
+              <h3>Jump back in</h3>
+            </div>
+          </div>
+
+          <div class="quick-grid">
+
+            <button class="quick-card" data-page="ai">
+              <div class="quick-icon purple">✦</div>
+              <div>
+                <strong>Ask AI</strong>
+                <span>Think through an idea</span>
+              </div>
+              <b>→</b>
+            </button>
+
+            <button class="quick-card" data-page="inspire">
+              <div class="quick-icon blue">✧</div>
+              <div>
+                <strong>Find Inspiration</strong>
+                <span>Discover visual ideas</span>
+              </div>
+              <b>→</b>
+            </button>
+
+            <button class="quick-card" data-page="showcase">
+              <div class="quick-icon pink">◈</div>
+              <div>
+                <strong>See Creations</strong>
+                <span>Discover people's talent</span>
+              </div>
+              <b>→</b>
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= EXPLORE ================= -->
+      <section class="page" id="explore">
+
+        <div class="page-header">
+          <span class="eyebrow">DISCOVER</span>
+          <h2>Explore <span>anything.</span></h2>
+          <p>Research, discover ideas and find useful information.</p>
+        </div>
+
+        <div class="large-search">
+          <span>⌕</span>
+          <input id="exploreSearch" placeholder="What do you want to explore?">
+          <button id="exploreButton">Explore</button>
+        </div>
+
+        <div class="result-message" id="exploreResult">
+          Try searching for something above.
+        </div>
+
+        <div class="topic-grid">
+
+          <div class="topic-card">
+            <span>🌌</span>
+            <h3>Science & Space</h3>
+            <p>Discover the universe and how things work.</p>
+          </div>
+
+          <div class="topic-card">
+            <span>🎭</span>
+            <h3>Arts & Culture</h3>
+            <p>Stories, creativity, history and expression.</p>
+          </div>
+
+          <div class="topic-card">
+            <span>💡</span>
+            <h3>Ideas & Innovation</h3>
+            <p>Explore inventions and new possibilities.</p>
+          </div>
+
+          <div class="topic-card">
+            <span>🌍</span>
+            <h3>World</h3>
+            <p>Learn about places, people and our planet.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= AI ================= -->
+      <section class="page" id="ai">
+
+        <div class="page-header">
+          <span class="eyebrow">THINK WITH AI</span>
+          <h2>Your <span>idea partner.</span></h2>
+          <p>Ask questions, brainstorm and turn rough thoughts into better ideas.</p>
+        </div>
+
+        <div class="ai-layout">
+
+          <div class="ai-chat">
+
+            <div class="ai-top">
+              <div class="ai-avatar">✦</div>
+              <div>
+                <strong>UniCanvas AI</strong>
+                <small>Ready to help you think</small>
+              </div>
+              <span class="online">● Online</span>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+
+              <div class="message ai-message">
+                <div class="message-avatar">✦</div>
+                <div>
+                  <p>Hi! I'm your UniCanvas idea partner.</p>
+                  <p>Ask me something, or tell me what you're creating.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="suggestions">
+              <button>Give me project ideas</button>
+              <button>Explain something simply</button>
+              <button>Help me brainstorm</button>
+            </div>
+
+            <div class="chat-input">
+              <input id="aiInput" placeholder="Ask UniCanvas AI...">
+              <button id="sendAI">↑</button>
+            </div>
+
+          </div>
+
+          <div class="ai-side">
+
+            <div class="glass-card">
+              <span class="small-label">IDEA BOOSTER</span>
+              <h3>Start with a thought.</h3>
+              <p>
+                You don't need a perfect idea. Start with a question,
+                problem or random thought.
+              </p>
+              <button class="primary-btn small" id="randomIdea">Give me an idea</button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= WATCH ================= -->
+      <section class="page" id="watch">
+
+        <div class="page-header">
+    <div>
+        <span class="eyebrow">WATCH</span>
+        <h1>Watch anything.</h1>
+        <p>Search YouTube and watch it right here in UniCanvas.</p>
+    </div>
+</div>
+
+<div class="watch-search-box">
+    <input
+        type="text"
+        id="watchSearch"
+        placeholder="Search videos... e.g. space, food, science"
+    >
+    <button id="watchSearchButton">
+        Search
+    </button>
+</div>
+
+<div id="watchPlayer"></div>
+
+<div id="watchResults" class="youtube-results">
+    <div class="watch-welcome">
+        <div class="watch-welcome-icon">▶</div>
+        <h2>What do you want to watch?</h2>
+        <p>Search for anything on YouTube.</p>
+    </div>
+</div>
+
+      </section>
+
+
+      <!-- ================= INSPIRE ================= -->
+      <section class="page" id="inspire">
+
+        <div class="page-header">
+  <div>
+    <span class="eyebrow">INSPIRE</span>
+    <h1>Find inspiration.</h1>
+    <p>Discover images, illustrations and animated ideas.</p>
+  </div>
+</div>
+
+<div class="inspire-search-box">
+  <input
+    type="text"
+    id="inspireSearch"
+    placeholder="Search anything... e.g. space, food, room ideas"
+  >
+
+  <button id="inspireSearchButton">
+    Search
+  </button>
+</div>
+
+<div class="inspire-filters">
+  <button class="inspire-filter active" data-filter="all">All</button>
+  <button class="inspire-filter" data-filter="photos">Photos</button>
+  <button class="inspire-filter" data-filter="gifs">GIFs</button>
+</div>
+
+<div id="inspireResults" class="inspire-grid">
+
+  <div class="inspire-welcome">
+    <div>✦</div>
+    <h2>What inspires you?</h2>
+    <p>Search for anything and discover something new.</p>
+  </div>
+
+</div>
+
+<div class="giphy-credit">
+  Powered by GIPHY
+</div>
+
+<!-- IMAGE VIEWER -->
+
+<div class="inspire-viewer" id="inspireViewer">
+
+  <button id="closeInspireViewer">×</button>
+
+  <img id="inspireViewerImage" src="" alt="">
+
+  <div id="inspireViewerTitle"></div>
+
+</div>
+
+      </section>
+
+
+      <!-- ================= CREATE ================= -->
+      <section class="page" id="create">
+
+        <div class="page-header">
+          <span class="eyebrow">YOUR CANVAS</span>
+          <h2>Create <span>something yours.</span></h2>
+          <p>Write, design, invent, imagine and express yourself.</p>
+        </div>
+
+        <div class="creation-types">
+
+          <button class="creation-type active" data-type="Story">
+            <span>📖</span>
+            Story
+          </button>
+
+          <button class="creation-type" data-type="Poem">
+            <span>✨</span>
+            Poem
+          </button>
+
+          <button class="creation-type" data-type="Idea">
+            <span>💡</span>
+            Idea
+          </button>
+
+          <button class="creation-type" data-type="Invention">
+            <span>⚙️</span>
+            Invention
+          </button>
+
+          <button class="creation-type" data-type="Speech">
+            <span>🎤</span>
+            Speech
+          </button>
+
+          <button class="creation-type" data-type="Art">
+            <span>🎨</span>
+            Art
+          </button>
+
+        </div>
+
+        <div class="creator">
+
+          <input id="creationTitle" class="title-input" placeholder="Give your creation a title...">
+
+          <textarea id="creationText" placeholder="Start creating here..."></textarea>
+
+          <div class="creator-footer">
+            <span id="creationTypeLabel">Creating: Story</span>
+
+            <div>
+              <button class="secondary-btn" id="saveDraft">Save Draft</button>
+              <button class="primary-btn" id="publishCreation">Publish ✦</button>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= SHOWCASE ================= -->
+      <section class="page" id="showcase">
+
+        <div class="page-header">
+          <span class="eyebrow">THE CREATIVE COMMUNITY</span>
+          <h2>See what people <span>create.</span></h2>
+          <p>A space where ideas and talent can be discovered.</p>
+        </div>
+
+        <div class="showcase-grid" id="showcaseGrid">
+
+          <article class="creation-card">
+            <div class="creator-row">
+              <div class="avatar">A</div>
+              <div>
+                <strong>@artbyaya</strong>
+                <small>Digital Artist</small>
+              </div>
+              <button class="follow-btn">Follow</button>
+            </div>
+
+            <div class="creation-preview preview-purple">
+              <span>THE<br>UNIVERSE<br>IS YOUR CANVAS</span>
+            </div>
+
+            <div class="creation-actions">
+              <button class="like-btn">♡ <span>24</span></button>
+              <button>♡ Comment</button>
+              <button>↗ Share</button>
+            </div>
+
+            <h3>My Universe</h3>
+            <p>A digital artwork inspired by the night sky.</p>
+          </article>
+
+
+          <article class="creation-card">
+            <div class="creator-row">
+              <div class="avatar blue-avatar">R</div>
+              <div>
+                <strong>@readwithray</strong>
+                <small>Writer</small>
+              </div>
+              <button class="follow-btn">Follow</button>
+            </div>
+
+            <div class="creation-preview preview-blue">
+              <span>ONE<br>SMALL<br>CHOICE</span>
+            </div>
+
+            <div class="creation-actions">
+              <button class="like-btn">♡ <span>18</span></button>
+              <button>♡ Comment</button>
+              <button>↗ Share</button>
+            </div>
+
+            <h3>One Small Choice</h3>
+            <p>A short story about how tiny decisions can change everything.</p>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= CONNECT ================= -->
+      <section class="page" id="connect">
+
+        <div class="page-header">
+          <span class="eyebrow">CONNECT</span>
+          <h2>Discover <span>creators.</span></h2>
+          <p>Find people with ideas and talents you want to explore.</p>
+        </div>
+
+        <div class="creator-search">
+          <span>⌕</span>
+          <input id="creatorSearch" placeholder="Search by username...">
+        </div>
+
+        <div class="people-grid">
+
+          <div class="person-card">
+            <div class="big-avatar gradient-avatar">A</div>
+            <h3>@artbyaya</h3>
+            <p>Artist • Illustrator</p>
+            <button class="follow-btn large">Follow</button>
+          </div>
+
+          <div class="person-card">
+            <div class="big-avatar blue-avatar">R</div>
+            <h3>@readwithray</h3>
+            <p>Writer • Storyteller</p>
+            <button class="follow-btn large">Follow</button>
+          </div>
+
+          <div class="person-card">
+            <div class="big-avatar pink-avatar">M</div>
+            <h3>@maker_mia</h3>
+            <p>Inventor • Builder</p>
+            <button class="follow-btn large">Follow</button>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= NOTES ================= -->
+      <section class="page" id="notes">
+
+        <div class="page-header">
+          <span class="eyebrow">YOUR IDEAS</span>
+          <h2>Notes that stay <span>with your projects.</span></h2>
+        </div>
+
+        <div class="notes-layout">
+
+          <div class="note-editor glass-card">
+            <input id="noteTitle" placeholder="Note title...">
+            <textarea id="noteText" placeholder="Write your thought..."></textarea>
+            <button class="primary-btn" id="addNote">＋ Add Note</button>
+          </div>
+
+          <div class="notes-list" id="notesList">
+            <div class="note-card">
+              <span>💡</span>
+              <div>
+                <h3>My first UniCanvas idea</h3>
+                <p>Connect research, inspiration and creativity in one place.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= TASKS ================= -->
+      <section class="page" id="tasks">
+
+        <div class="page-header">
+          <span class="eyebrow">GET THINGS DONE</span>
+          <h2>Your project <span>checklist.</span></h2>
+        </div>
+
+        <div class="task-box glass-card">
+
+          <div class="task-input">
+            <input id="taskInput" placeholder="Add a task...">
+            <button class="primary-btn" id="addTask">Add</button>
+          </div>
+
+          <div id="taskList">
+
+            <label class="task">
+              <input type="checkbox">
+              <span>Research the topic</span>
+            </label>
+
+            <label class="task">
+              <input type="checkbox">
+              <span>Collect inspiration</span>
+            </label>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= FOCUS ================= -->
+      <section class="page" id="focus">
+
+  <div class="page-header">
+    <span class="eyebrow">PURPOSE MODE</span>
+    <h2>Focus on what <span>matters.</span></h2>
+    <p>No endless scrolling. Choose a goal and spend intentional time on it.</p>
+  </div>
+
+  <div class="focus-container">
+
+    
+
+    <!-- Duration -->
+    <div class="focus-option">
+      <label for="focusDuration">⏱️ Session Duration</label>
+
+      <select id="focusDuration">
+        <option value="15">15 minutes</option>
+        <option value="30">30 minutes</option>
+        <option value="45">45 minutes</option>
+        <option value="60">1 hour</option>
+        <option value="90">1 hour 30 minutes</option>
+        <option value="120">2 hours</option>
+        <option value="150">2 hours 30 minutes</option>
+        <option value="180">3 hours</option>
+      </select>
+    </div>
+
+    <div class="timer-circle">
+      <div>
+        <span id="timer">15:00</span>
+        <small>FOCUS SESSION</small>
+      </div>
+    </div>
+
+    <h3 id="focusStatus">Ready when you are.</h3>
+
+    <div class="timer-controls">
+      <button class="primary-btn" id="startTimer">
+        Start Focus
+      </button>
+
+      <button class="secondary-btn" id="resetTimer">
+        Reset
+      </button>
+    </div>
+
+    <div class="focus-stats">
+
+      <div>
+        <strong id="sessions">0</strong>
+        <span>Sessions</span>
+      </div>
+
+      <div>
+        <strong id="focusPoints">0</strong>
+        <span>Focus Points</span>
+      </div>
+
+      <div>
+        <strong id="focusMinutes">0</strong>
+        <span>Minutes</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+      <!-- ================= PROFILE ================= -->
+      <section class="page" id="profile">
+
+  <div class="profile-hero">
+
+    <div class="profile-avatar" id="profileAvatar">U</div>
+
+    <div>
+      <span class="eyebrow">YOUR PROFILE</span>
+      <h2 id="profileName">UniCanvas Creator</h2>
+      <p id="profileSubtitle">@yourcanvas • Explorer • Creator • Thinker</p>
+    </div>
+
+    <button class="secondary-btn" id="editProfileBtn">
+      Edit Profile
+    </button>
+
+  </div>
+
+  <div class="profile-stats">
+    <div><strong id="creationCount">0</strong><span>Creations</span></div>
+    <div><strong>12</strong><span>Saved</span></div>
+    <div><strong>7</strong><span>Following</span></div>
+    <div><strong>24</strong><span>Appreciations</span></div>
+  </div>
+
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">PORTFOLIO</span>
+      <h3>Your creations</h3>
+    </div>
+  </div>
+
+  <div class="portfolio-empty">
+    <span>✦</span>
+    <h3>Your canvas is waiting.</h3>
+    <p>Create something and it will appear here.</p>
+    <button class="primary-btn" data-page="create">Create something</button>
+  </div>
+
+</section>
+
+<!-- EDIT PROFILE MODAL -->
+<div class="profile-modal" id="profileModal">
+
+  <div class="profile-modal-box">
+
+    <button class="profile-modal-close" id="closeProfileModal">×</button>
+
+    <span class="eyebrow">PROFILE SETTINGS</span>
+    <h2>Edit your profile</h2>
+    <p class="profile-modal-subtitle">
+      Tell UniCanvas a little about you.
+    </p>
+
+    <label>Full name</label>
+    <input type="text" id="profileNameInput" placeholder="Your name">
+
+    <label>Username</label>
+    <input type="text" id="profileUsernameInput" placeholder="yourusername">
+
+    <label>Age</label>
+    <input type="number" id="profileAgeInput" placeholder="Your age">
+
+    <label>Nickname</label>
+    <input type="text" id="profileNicknameInput" placeholder="What should we call you?">
+
+    <label>Subtitle / Bio</label>
+    <textarea
+      id="profileBioInput"
+      placeholder="Explorer • Creator • Thinker"
+      rows="3"
+    ></textarea>
+
+    <div class="profile-modal-actions">
+      <button class="secondary-btn" id="cancelProfileBtn">Cancel</button>
+      <button class="primary-btn" id="saveProfileBtn">Save Profile</button>
+    </div>
+
+  </div>
+
+</div>
+        <div class="portfolio-empty">
+          <span>✦</span>
+          <h3>Your canvas is waiting.</h3>
+          <p>Create something and it will appear here.</p>
+          <button class="primary-btn" data-page="create">Create something</button>
+        </div>
+
+      </section>
+<section class="page" id="savedResources">
+
+  <div class="page-header">
+    <span class="eyebrow">YOUR COLLECTION</span>
+
+    <h2>Your <span>Saved Resources.</span></h2>
+
+    <p>
+      Everything you've saved while exploring ideas,
+      images, and videos in UniCanvas.
+    </p>
+  </div>
+
+  <div class="saved-resource-container">
+
+    <div class="saved-resource-header">
+      <div>
+        <h3>Collected for your projects</h3>
+        <p id="savedResourceCount">
+          Your saved resources will appear here.
+        </p>
+      </div>
+    </div>
+
+    <div
+      id="savedResourceGrid"
+      class="saved-resource-grid"
+    ></div>
+
+    <div
+      id="savedResourceEmpty"
+      class="saved-resource-empty"
+    >
+      <div class="saved-empty-icon">✦</div>
+
+      <h3>No saved resources yet</h3>
+
+      <p>
+        Save an image from Inspire or a video from Watch
+        and it will appear here.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+    </main>
+
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="SCRIPT.js"></script>
+</body>
+</html>
