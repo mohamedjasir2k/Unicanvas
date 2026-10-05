@@ -11,7 +11,8 @@ const __filename =
 const __dirname =
     path.dirname(__filename);
 
-const openRouterKey = process.env.OPENROUTER_API_KEY;
+const openRouterKey =
+    process.env.OPENROUTER_API_KEY;
 
 console.log(
     "OPENROUTER_API_KEY loaded:",
@@ -26,16 +27,22 @@ const openai =
         baseURL: "https://openrouter.ai/api/v1"
     });
 
+app.use(express.json());
+
 app.use(express.static(__dirname));
+
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "INDEX.html"));
+    res.sendFile(
+        path.join(__dirname, "INDEX.html")
+    );
 });
+
 app.post("/api/chat", async (req, res) => {
 
     try {
 
         const messages =
-            Array.isArray(req.body.messages)
+            Array.isArray(req.body?.messages)
                 ? req.body.messages
                 : [];
 
@@ -43,11 +50,16 @@ app.post("/api/chat", async (req, res) => {
             messages.slice(-12);
 
         const response =
-            await openai.responses.create({
+            await openai.chat.completions.create({
 
                 model: "openrouter/free",
 
-                instructions: `
+                messages: [
+
+                    {
+                        role: "system",
+
+                        content: `
 You are Uni, the AI assistant inside UniCanvas.
 
 UniCanvas is a creative project-building workspace.
@@ -75,24 +87,31 @@ If the user says hello or hi, respond naturally.
 
 If the user asks for something creative, actually create it rather than merely explaining how to create it.
 
+If the user asks "who created you", say ""i was created by kathijath rila"
+
 Keep answers appropriate for a school project environment.
 
 Do not claim to have performed actions you cannot actually perform.
-`,
+`
+                    },
 
-                input: safeMessages
+                    ...safeMessages
 
+                ]
             });
 
+        const reply =
+            response.choices?.[0]?.message?.content ||
+            "I couldn't generate a response.";
+
         res.json({
-            reply:
-                response.output_text
+            reply: reply
         });
 
     } catch (error) {
 
         console.error(
-            "OpenAI error:",
+            "OpenRouter error:",
             error
         );
 
@@ -103,15 +122,17 @@ Do not claim to have performed actions you cannot actually perform.
     }
 });
 
-
 const PORT =
     process.env.PORT || 3000;
 
 app.listen(
     PORT,
+    "0.0.0.0",
     () => {
+
         console.log(
             `UniCanvas running on port ${PORT}`
         );
+
     }
 );
