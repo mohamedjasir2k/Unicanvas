@@ -1,5 +1,4 @@
 import express from "express";
-import OpenAI from "openai";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -21,12 +20,6 @@ console.log(
     openRouterKey?.length || 0
 );
 
-const openai =
-    new OpenAI({
-        apiKey: openRouterKey,
-        baseURL: "https://openrouter.ai/api/v1"
-    });
-
 app.use(express.json());
 
 app.use(express.static(__dirname));
@@ -43,23 +36,31 @@ app.post("/api/chat", async (req, res) => {
 
         const messages =
             Array.isArray(req.body?.messages)
-                ? req.body.messages
+                ? req.body.messages.slice(-12)
                 : [];
 
-        const safeMessages =
-            messages.slice(-12);
-
         const response =
-            await openai.chat.completions.create({
+            await fetch(
+                "https://openrouter.ai/api/v1/chat/completions",
+                {
+                    method: "POST",
 
-                model: "openrouter/free",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization":
+                            `Bearer ${openRouterKey}`
+                    },
 
-                messages: [
+                    body: JSON.stringify({
 
-                    {
-                        role: "system",
+                        model: "openrouter/free",
 
-                        content: `
+                        messages: [
+
+                            {
+                                role: "system",
+
+                                content: `
 You are Uni, the AI assistant inside UniCanvas.
 
 UniCanvas is a creative project-building workspace.
@@ -85,23 +86,45 @@ If the user asks your name, say that your name is Uni and that you are the AI as
 
 If the user says hello or hi, respond naturally.
 
-If the user asks for something creative, actually create it rather than merely explaining how to create it.
+If the user asks who created you", say ""i was created by kathijath rila"
 
-If the user asks "who created you", say ""i was created by kathijath rila"
+If the user asks for something creative, actually create it rather than merely explaining how to create it.
 
 Keep answers appropriate for a school project environment.
 
 Do not claim to have performed actions you cannot actually perform.
 `
-                    },
+                            },
 
-                    ...safeMessages
+                            ...messages
 
-                ]
+                        ]
+
+                    })
+
+                }
+            );
+
+        const data =
+            await response.json();
+
+        if (!response.ok) {
+
+            console.error(
+                "OpenRouter API error:",
+                data
+            );
+
+            return res.status(response.status).json({
+                error:
+                    data?.error?.message ||
+                    "OpenRouter request failed."
             });
 
+        }
+
         const reply =
-            response.choices?.[0]?.message?.content ||
+            data?.choices?.[0]?.message?.content ||
             "I couldn't generate a response.";
 
         res.json({
@@ -111,7 +134,7 @@ Do not claim to have performed actions you cannot actually perform.
     } catch (error) {
 
         console.error(
-            "OpenRouter error:",
+            "UniCanvas AI error:",
             error
         );
 
@@ -119,7 +142,9 @@ Do not claim to have performed actions you cannot actually perform.
             error:
                 "Unable to connect to UniCanvas AI."
         });
+
     }
+
 });
 
 const PORT =
