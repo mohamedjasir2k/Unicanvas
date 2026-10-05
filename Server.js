@@ -4,11 +4,8 @@ import { fileURLToPath } from "url";
 
 const app = express();
 
-const __filename =
-    fileURLToPath(import.meta.url);
-
-const __dirname =
-    path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const openRouterKey =
     process.env.OPENROUTER_API_KEY?.trim();
@@ -46,14 +43,23 @@ app.post("/api/chat", async (req, res) => {
                     method: "POST",
 
                     headers: {
-                        "Content-Type": "application/json",
                         "Authorization":
-                            `Bearer ${openRouterKey}`
+                            `Bearer ${openRouterKey}`,
+
+                        "Content-Type":
+                            "application/json",
+
+                        "HTTP-Referer":
+                            "https://unicanvas.onrender.com",
+
+                        "X-Title":
+                            "UniCanvas"
                     },
 
                     body: JSON.stringify({
 
-                        model: "openrouter/free",
+                        model:
+                            "openrouter/free",
 
                         messages: [
 
@@ -65,34 +71,33 @@ You are Uni, the AI assistant inside UniCanvas.
 
 UniCanvas is a creative project-building workspace.
 
-Your job is to help users:
-- brainstorm project ideas
-- research and understand topics
-- develop ideas
-- write and improve content
-- create presentations and outlines
-- solve problems
-- explain difficult concepts simply
-- plan projects
-- generate creative suggestions
+Help users with:
+- brainstorming
+- research
+- understanding topics
+- developing ideas
+- writing
+- presentations
+- problem solving
+- explanations
+- project planning
+- creative suggestions
 
 Be natural and conversational.
 
-Do not use the same response repeatedly.
-Do not give generic advice when the user asks a specific question.
-Answer the actual question first.
+Answer the user's actual question first.
 
-If the user asks your name, say that your name is Uni and that you are the AI assistant inside UniCanvas.
+Do not give generic advice when a specific answer is possible.
+
+If the user asks your name, say your name is Uni and that you are the AI assistant inside UniCanvas.
 
 If the user says hello or hi, respond naturally.
 
-If the user asks who created you", say ""i was created by kathijath rila"
-
-If the user asks for something creative, actually create it rather than merely explaining how to create it.
+If the user asks for something creative, actually create it.
 
 Keep answers appropriate for a school project environment.
 
-Do not claim to have performed actions you cannot actually perform.
+Do not claim to have performed actions you cannot perform.
 `
                             },
 
@@ -108,6 +113,11 @@ Do not claim to have performed actions you cannot actually perform.
         const data =
             await response.json();
 
+        console.log(
+            "OpenRouter status:",
+            response.status
+        );
+
         if (!response.ok) {
 
             console.error(
@@ -115,10 +125,14 @@ Do not claim to have performed actions you cannot actually perform.
                 data
             );
 
-            return res.status(response.status).json({
+            return res.status(
+                response.status
+            ).json({
+
                 error:
                     data?.error?.message ||
                     "OpenRouter request failed."
+
             });
 
         }
@@ -139,8 +153,10 @@ Do not claim to have performed actions you cannot actually perform.
         );
 
         res.status(500).json({
+
             error:
                 "Unable to connect to UniCanvas AI."
+
         });
 
     }
