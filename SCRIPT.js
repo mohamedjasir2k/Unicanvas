@@ -309,70 +309,33 @@ function addThinkingMessage() {
 
 /* ---------- TALK TO REAL AI ---------- */
 
-async function generateAIResponse(userText) {
+async function generateAIResponse(text) {
 
-    aiHistory.push({
-        role: "user",
-        content: userText
+    const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            messages: [
+                {
+                    role: "user",
+                    content: text
+                }
+            ]
+        })
     });
-
-    /*
-       Keep the conversation reasonably small.
-       The latest messages are enough for context.
-    */
-
-    const recentHistory =
-        aiHistory.slice(-12);
-
-    const response =
-        await fetch("/api/chat", {
-
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-                messages: recentHistory
-            })
-        });
 
     if (!response.ok) {
-
-        let errorMessage =
-            "The AI could not respond right now.";
-
-        try {
-
-            const error =
-                await response.json();
-
-            if (error.error) {
-                errorMessage =
-                    error.error;
-            }
-
-        } catch (_) {}
-
-        throw new Error(errorMessage);
+        throw new Error(
+            `Chat API error: ${response.status}`
+        );
     }
 
-    const data =
-        await response.json();
+    const data = await response.json();
 
-    const answer =
-        data.reply ||
-        "I couldn't generate a response.";
-
-    aiHistory.push({
-        role: "assistant",
-        content: answer
-    });
-
-    return answer;
+    return data.reply || "I don't have an answer for that yet.";
 }
-
 
 /* ---------- SEND ---------- */
 
@@ -380,8 +343,7 @@ async function sendMessage() {
 
     if (!aiInput || !sendAI) return;
 
-    const text =
-        aiInput.value.trim();
+    const text = aiInput.value.trim();
 
     if (!text) return;
 
@@ -391,20 +353,50 @@ async function sendMessage() {
 
     sendAI.disabled = true;
 
-    const thinking =
-        addThinkingMessage();
+    const thinking = addThinkingMessage();
 
     try {
 
-        const response =
-            await generateAIResponse(text);
+        const response = await fetch("/api/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                messages: [
+                    {
+                        role: "user",
+                        content: text
+                    }
+                ]
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(
+                `Server returned ${response.status}`
+            );
+        }
+
+        const data = await response.json();
 
         thinking?.remove();
 
-        addMessage(
-            response,
-            "ai"
-        );
+        if (data.reply) {
+
+            addMessage(
+                data.reply,
+                "ai"
+            );
+
+        } else {
+
+            addMessage(
+                "I don't have an answer for that yet. Try asking me something about UniCanvas, projects, research, ideas, or creativity.",
+                "ai"
+            );
+
+        }
 
     } catch (error) {
 
@@ -416,7 +408,7 @@ async function sendMessage() {
         thinking?.remove();
 
         addMessage(
-            "I couldn't connect to the AI right now. Please try again.",
+            "I couldn't connect to Uni right now. Please try again.",
             "ai"
         );
 
@@ -441,16 +433,21 @@ sendAI?.addEventListener(
 
 aiInput?.addEventListener(
     "keydown",
-    event => {
+    (event) => {
 
-        if (event.key === "Enter") {
+        if (
+            event.key === "Enter" &&
+            !event.shiftKey
+        ) {
 
             event.preventDefault();
 
             sendMessage();
         }
+
     }
 );
+
 
 
 /* ---------- SUGGESTIONS ---------- */
