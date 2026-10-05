@@ -11,7 +11,7 @@ const __dirname =
     path.dirname(__filename);
 
 const openRouterKey =
-    process.env.OPENROUTER_API_KEY;
+    process.env.OPENROUTER_API_KEY?.trim();
 
 console.log(
     "OPENROUTER_API_KEY loaded:",
