@@ -26,15 +26,10 @@ const openai =
         baseURL: "https://openrouter.ai/api/v1"
     });
 
-app.use(express.json());
-
-app.use(
-    express.static(
-        path.join(__dirname, "public")
-    )
-);
-
-
+app.use(express.static(__dirname));
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "INDEX.html"));
+});
 app.post("/api/chat", async (req, res) => {
 
     try {
