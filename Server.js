@@ -45,7 +45,7 @@ app.post("/api/chat", async (req, res) => {
         const response =
             await openai.responses.create({
 
-                model: "gpt-5.6-luna",
+                model: "openrouter/free",
 
                 instructions: `
 You are Uni, the AI assistant inside UniCanvas.
