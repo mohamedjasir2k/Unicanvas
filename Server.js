@@ -24,39 +24,111 @@ function normalize(text) {
 }
 
 function findKnowledgeAnswer(userMessage) {
-    const user = normalize(userMessage);
 
-    if (!user) return null;
+    const normalizedUserMessage =
+        normalize(userMessage);
 
-    for (const item of uniKnowledge) {
-        const question = normalize(item.question);
-
-        if (
-            question === user ||
-            user.includes(question) ||
-            question.includes(user)
-        ) {
-            return item.answer;
-        }
+    if (!normalizedUserMessage) {
+        return null;
     }
 
-    const userWords = user
-        .split(" ")
-        .filter(word => word.length >= 4);
+    // 1. Exact / contained match
+    const exactMatch =
+        uniKnowledge.find(item => {
+
+            const question =
+                normalize(item.question);
+
+            return (
+                question === normalizedUserMessage ||
+                normalizedUserMessage.includes(question) ||
+                question.includes(normalizedUserMessage)
+            );
+
+        });
+
+    if (exactMatch) {
+        return exactMatch.answer;
+    }
+
+    // 2. Remove common question words
+    const stopWords = new Set([
+        "what",
+        "how",
+        "can",
+        "could",
+        "would",
+        "should",
+        "do",
+        "does",
+        "did",
+        "is",
+        "are",
+        "the",
+        "a",
+        "an",
+        "me",
+        "i",
+        "my",
+        "you",
+        "your",
+        "please",
+        "think",
+        "tell",
+        "give",
+        "help",
+        "want",
+        "need",
+        "to"
+    ]);
+
+    const userWords =
+        normalizedUserMessage
+            .split(" ")
+            .filter(word =>
+                word.length >= 3 &&
+                !stopWords.has(word)
+            );
 
     let bestMatch = null;
     let bestScore = 0;
 
+    // 3. Compare meaningful words
     for (const item of uniKnowledge) {
-        const questionWords = normalize(item.question)
-            .split(" ")
-            .filter(word => word.length >= 4);
+
+        const question =
+            normalize(item.question);
+
+        const questionWords =
+            question
+                .split(" ")
+                .filter(word =>
+                    word.length >= 3 &&
+                    !stopWords.has(word)
+                );
 
         let score = 0;
 
-        for (const word of userWords) {
-            if (questionWords.includes(word)) {
-                score++;
+        for (const userWord of userWords) {
+
+            for (const questionWord of questionWords) {
+
+                // Exact word
+                if (userWord === questionWord) {
+                    score += 2;
+                }
+
+                // Similar word
+                else if (
+                    userWord.length >= 5 &&
+                    questionWord.length >= 5 &&
+                    (
+                        userWord.includes(questionWord) ||
+                        questionWord.includes(userWord)
+                    )
+                ) {
+                    score += 1;
+                }
             }
         }
 
@@ -66,6 +138,7 @@ function findKnowledgeAnswer(userMessage) {
         }
     }
 
+    // 4. Require meaningful similarity
     if (bestMatch && bestScore >= 2) {
         return bestMatch.answer;
     }
