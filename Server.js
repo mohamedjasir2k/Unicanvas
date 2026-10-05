@@ -11,9 +11,19 @@ const __filename =
 const __dirname =
     path.dirname(__filename);
 
+const openRouterKey = process.env.OPENROUTER_API_KEY;
+
+console.log(
+    "OPENROUTER_API_KEY loaded:",
+    Boolean(openRouterKey),
+    "length:",
+    openRouterKey?.length || 0
+);
+
 const openai =
     new OpenAI({
-        apiKey: process.env.OPENAI_API_KEY
+        apiKey: openRouterKey,
+        baseURL: "https://openrouter.ai/api/v1"
     });
 
 app.use(express.json());
