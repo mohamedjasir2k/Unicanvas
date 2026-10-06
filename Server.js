@@ -27,7 +27,25 @@ function findKnowledgeAnswer(userMessage) {
 
     const normalizedUserMessage =
         normalize(userMessage);
+    const normalizedMessage = normalize(userMessage);
 
+    // Aarav horror story
+    if (
+        normalizedMessage.includes("aarav") &&
+        (
+            normalizedMessage.includes("horror") ||
+            normalizedMessage.includes("story") ||
+            normalizedMessage.includes("scary")
+        )
+    ) {
+        const aaravStory = uniKnowledge.find(item =>
+            normalize(item.question).includes("aarav")
+        );
+
+        if (aaravStory) {
+            return aaravStory.answer;
+        }
+    }
     if (!normalizedUserMessage) {
         return null;
     }
