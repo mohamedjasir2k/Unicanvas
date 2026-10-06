@@ -4804,4 +4804,4 @@ There was nobody there.`
 }
 ];
 
-export default newUniQuestions;
+export default uniKnowledge;
