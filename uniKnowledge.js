@@ -4281,7 +4281,7 @@ const uniKnowledge = [
         answer: "Choose one important task and work on it without unnecessary notifications or app switching for the next 20 minutes."
     },
 {
-    question: "Give me a long, slightly chilling story.",
+    question: "give me a horror story",
     answer: `The House at the End of the Road
 
 When Aarav first noticed the house, he thought it was abandoned.

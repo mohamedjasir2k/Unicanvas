@@ -32,7 +32,10 @@ function findKnowledgeAnswer(userMessage) {
         return null;
     }
 
-    // 1. Exact / contained match
+    /* =========================================================
+       1. EXACT / CONTAINED MATCH
+    ========================================================= */
+
     const exactMatch =
         uniKnowledge.find(item => {
 
@@ -51,9 +54,18 @@ function findKnowledgeAnswer(userMessage) {
         return exactMatch.answer;
     }
 
-    // 2. Remove common question words
+
+    /* =========================================================
+       2. COMMON QUESTION WORDS
+    ========================================================= */
+
     const stopWords = new Set([
         "what",
+        "when",
+        "where",
+        "why",
+        "who",
+        "which",
         "how",
         "can",
         "could",
@@ -64,6 +76,8 @@ function findKnowledgeAnswer(userMessage) {
         "did",
         "is",
         "are",
+        "was",
+        "were",
         "the",
         "a",
         "an",
@@ -79,8 +93,152 @@ function findKnowledgeAnswer(userMessage) {
         "help",
         "want",
         "need",
-        "to"
+        "show",
+        "say",
+        "know",
+        "about",
+        "for",
+        "to",
+        "of",
+        "on",
+        "in",
+        "with",
+        "and",
+        "or",
+        "it",
+        "this",
+        "that",
+        "from",
+        "there",
+        "here",
+        "please"
     ]);
+
+
+    /* =========================================================
+       3. SYNONYM / MEANING GROUPS
+
+       Words inside the same group are treated as related.
+    ========================================================= */
+
+    const synonymGroups = [
+
+        // Stories
+        [
+            "horror",
+            "scary",
+            "scared",
+            "frightening",
+            "fright",
+            "spooky",
+            "haunted",
+            "ghost"
+        ],
+
+        [
+            "story",
+            "tale",
+            "stories",
+            "tales"
+        ],
+
+        // Ideas
+        [
+            "idea",
+            "ideas",
+            "concept",
+            "concepts",
+            "suggestion",
+            "suggestions"
+        ],
+
+        // Projects
+        [
+            "project",
+            "projects",
+            "assignment",
+            "assignments"
+        ],
+
+        // Research
+        [
+            "research",
+            "investigate",
+            "investigation",
+            "study",
+            "studying"
+        ],
+
+        // Creativity
+        [
+            "creative",
+            "creativity",
+            "create",
+            "creating",
+            "creation"
+        ],
+
+        // Motivation
+        [
+            "motivation",
+            "motivate",
+            "motivated",
+            "encourage",
+            "encouragement"
+        ],
+
+        // Focus
+        [
+            "focus",
+            "focused",
+            "concentrate",
+            "concentration",
+            "attention"
+        ],
+
+        // Help
+        [
+            "help",
+            "assist",
+            "assistance",
+            "support"
+        ],
+
+        // Presentation
+        [
+            "presentation",
+            "present",
+            "presenting",
+            "speech",
+            "explain"
+        ]
+    ];
+
+
+    function areRelatedWords(word1, word2) {
+
+        if (word1 === word2) {
+            return true;
+        }
+
+        for (const group of synonymGroups) {
+
+            if (
+                group.includes(word1) &&
+                group.includes(word2)
+            ) {
+                return true;
+            }
+
+        }
+
+        return false;
+    }
+
+
+    /* =========================================================
+       4. CLEAN USER WORDS
+    ========================================================= */
 
     const userWords =
         normalizedUserMessage
@@ -90,10 +248,14 @@ function findKnowledgeAnswer(userMessage) {
                 !stopWords.has(word)
             );
 
+
+    /* =========================================================
+       5. FIND BEST MATCH
+    ========================================================= */
+
     let bestMatch = null;
     let bestScore = 0;
 
-    // 3. Compare meaningful words
     for (const item of uniKnowledge) {
 
         const question =
@@ -107,18 +269,32 @@ function findKnowledgeAnswer(userMessage) {
                     !stopWords.has(word)
                 );
 
+        if (!questionWords.length) {
+            continue;
+        }
+
         let score = 0;
 
         for (const userWord of userWords) {
 
             for (const questionWord of questionWords) {
 
-                // Exact word
+                /* Exact word */
                 if (userWord === questionWord) {
-                    score += 2;
+                    score += 3;
                 }
 
-                // Similar word
+                /* Synonym / related meaning */
+                else if (
+                    areRelatedWords(
+                        userWord,
+                        questionWord
+                    )
+                ) {
+                    score += 3;
+                }
+
+                /* Similar longer words */
                 else if (
                     userWord.length >= 5 &&
                     questionWord.length >= 5 &&
@@ -129,64 +305,64 @@ function findKnowledgeAnswer(userMessage) {
                 ) {
                     score += 1;
                 }
+
             }
+
         }
+
+
+        /* =====================================================
+           6. BONUS FOR MULTIPLE MATCHING WORDS
+        ===================================================== */
+
+        const uniqueMatches = new Set();
+
+        for (const userWord of userWords) {
+
+            for (const questionWord of questionWords) {
+
+                if (
+                    userWord === questionWord ||
+                    areRelatedWords(
+                        userWord,
+                        questionWord
+                    )
+                ) {
+                    uniqueMatches.add(questionWord);
+                }
+
+            }
+
+        }
+
+        if (uniqueMatches.size >= 2) {
+            score += 2;
+        }
+
+
+        /* =====================================================
+           7. KEEP THE STRONGEST MATCH
+        ===================================================== */
 
         if (score > bestScore) {
             bestScore = score;
             bestMatch = item;
         }
+
     }
 
-    // 4. Require meaningful similarity
-    if (bestMatch && bestScore >= 2) {
+
+    /* =========================================================
+       8. REQUIRE A MEANINGFUL MATCH
+
+       This prevents Uni from answering a completely unrelated
+       question just because one common word matched.
+    ========================================================= */
+
+    if (bestMatch && bestScore >= 3) {
         return bestMatch.answer;
     }
 
+
     return null;
 }
-
-app.post("/api/chat", (req, res) => {
-
-    try {
-
-        const messages = Array.isArray(req.body?.messages)
-            ? req.body.messages
-            : [];
-
-        const userMessage =
-            messages[messages.length - 1]?.content || "";
-
-        const answer =
-            findKnowledgeAnswer(userMessage);
-
-        if (answer) {
-
-            return res.json({
-                reply: Array.isArray(answer)
-                    ? answer.join("\n")
-                    : String(answer)
-            });
-
-        }
-
-        return res.json({
-            reply:
-                "I don't have an answer for that yet. Try asking me about projects, research, creativity, ideas, motivation, or UniCanvas."
-        });
-
-    } catch (error) {
-
-        console.error("UniCanvas error:", error);
-
-        return res.status(500).json({
-            error: "Unable to process your question."
-        });
-    }
-});
-
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, "0.0.0.0", () => {
-    console.log(`UniCanvas running on port ${PORT}`);
-});
