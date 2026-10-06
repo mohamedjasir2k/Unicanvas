@@ -366,6 +366,23 @@ function findKnowledgeAnswer(userMessage) {
 
     return null;
 }
+app.post("/api/chat", (req, res) => {
+
+    const userMessage = req.body?.message || "";
+
+    const answer = findKnowledgeAnswer(userMessage);
+
+    if (answer) {
+        return res.json({
+            answer: answer
+        });
+    }
+
+    return res.json({
+        answer: "I don't have an answer for that yet. Try asking me about brainstorming, project ideas, research, presentations, innovation, focus, or UniCanvas."
+    });
+
+});
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
