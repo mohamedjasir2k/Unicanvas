@@ -3659,8 +3659,1149 @@ const uniKnowledge = [
         answer: [
             "Do not become so focused on making something impressive that you forget the real problem you are trying to solve."
         ]
-    }
+    },
 
+    {
+        question: "What can I do when I am bored?",
+        answer: "Try drawing something, solving a puzzle, learning a new skill, writing a short story, organizing your room, or doing a small creative challenge."
+    },
+
+    {
+        question: "Give me a random challenge.",
+        answer: "For the next five minutes, find five objects around you and think of one unusual use for each."
+    },
+
+    {
+        question: "Give me a mystery.",
+        answer: "A room has no windows and no doors, but there is a person inside. How is that possible? Think carefully—the answer is that the person is inside a mushroom."
+    },
+
+    {
+        question: "Give me a detective puzzle.",
+        answer: "A man was found dead on Sunday morning. His wife said she was sleeping, the cook was making breakfast, the gardener was planting flowers, and the maid was getting the mail. The detective immediately knew who was lying. Who? The maid, because mail is not normally delivered on Sunday."
+    },
+
+    {
+        question: "Give me a hard riddle.",
+        answer: "I am always in front of you but can never be seen. What am I? The future."
+    },
+
+    {
+        question: "Give me a tricky riddle.",
+        answer: "The more you take, the more you leave behind. What am I? Footsteps."
+    },
+
+    {
+        question: "Give me a riddle about time.",
+        answer: "I have no hands, but I can tell you the time. What am I? A clock without visible hands is not the intended answer—think of a digital clock."
+    },
+
+    {
+        question: "Give me a word puzzle.",
+        answer: "What word becomes shorter when you add two letters to it? The word is 'short'—adding 'er' makes 'shorter'."
+    },
+
+    {
+        question: "Give me a logic puzzle.",
+        answer: "You have two ropes. Each takes exactly one hour to burn, but they do not burn evenly. How can you measure 45 minutes? Light both ends of one rope and one end of the other. When the first rope finishes, light the second end of the other rope. It will finish after another 15 minutes."
+    },
+
+    {
+        question: "Give me a quick brain teaser.",
+        answer: "A plane crashes exactly on the border between two countries. Where do you bury the survivors? You don't bury survivors."
+    },
+
+    {
+        question: "Give me a surprising fact.",
+        answer: "Bananas are berries botanically, while strawberries are not true berries."
+    },
+
+    {
+        question: "Tell me something surprising about the human body.",
+        answer: "Your skin is the body's largest organ."
+    },
+
+    {
+        question: "Why do we dream?",
+        answer: "Scientists still do not have one complete explanation for dreams. Dreams may be connected to memory, emotions, brain activity, and processing experiences."
+    },
+
+    {
+        question: "Why do we sneeze?",
+        answer: "Sneezing is a protective reflex that helps remove irritants from the nose and airways."
+    },
+
+    {
+        question: "Why do we yawn?",
+        answer: "Yawning is a natural behavior associated with tiredness, changes in alertness, and brain and body regulation. Scientists are still studying its exact purpose."
+    },
+
+    {
+        question: "Why do we get hiccups?",
+        answer: "Hiccups happen when the diaphragm suddenly contracts involuntarily, followed by the closing of the vocal cords."
+    },
+
+    {
+        question: "Why do fingerprints exist?",
+        answer: "Fingerprints develop before birth and help provide grip and sensitivity when handling objects."
+    },
+
+    {
+        question: "Why does chocolate melt?",
+        answer: "Chocolate contains fats that melt at relatively low temperatures, so it can soften and melt when warmed."
+    },
+
+    {
+        question: "Why does popcorn pop?",
+        answer: "Popcorn kernels contain a small amount of water inside them. When heated, the water turns into steam and creates pressure until the kernel bursts."
+    },
+
+    {
+        question: "Why do onions make us cry?",
+        answer: "Cutting an onion releases chemicals that can irritate the eyes, causing them to produce tears."
+    },
+
+    {
+        question: "Why is the ocean salty?",
+        answer: "Minerals and salts are carried into the oceans by rivers and other natural processes. Water evaporates, but much of the dissolved salt remains."
+    },
+
+    {
+        question: "Why does ice float?",
+        answer: "Ice is less dense than liquid water because of the structure formed when water freezes."
+    },
+
+    {
+        question: "Why does metal feel colder than wood?",
+        answer: "Metal conducts heat away from your hand much faster than wood, so it feels colder even when both objects are at the same temperature."
+    },
+
+    {
+        question: "Why is space dark?",
+        answer: "Space appears dark because there is very little matter to scatter light through most of it, even though stars and other objects produce light."
+    },
+
+    {
+        question: "Why does the Moon shine?",
+        answer: "The Moon does not produce its own visible light. It appears to shine because it reflects sunlight."
+    },
+
+    {
+        question: "Why do stars twinkle?",
+        answer: "Stars appear to twinkle because their light passes through Earth's moving atmosphere, which bends and changes the light slightly."
+    },
+
+    {
+        question: "Why do we see lightning before thunder?",
+        answer: "Light travels much faster than sound, so we see the lightning before the sound of thunder reaches us."
+    },
+
+    {
+        question: "Why does rain smell good?",
+        answer: "The smell after rain can come from compounds released by soil and plants, including a substance called geosmin."
+    },
+
+    {
+        question: "Why do leaves change color?",
+        answer: "When seasons change, many trees produce less chlorophyll. Other pigments then become more visible, creating yellow, orange, and red colors."
+    },
+
+    {
+        question: "Why do plants need sunlight?",
+        answer: "Plants use light energy during photosynthesis to make food from carbon dioxide and water."
+    },
+
+    {
+        question: "What should I do if I cannot sleep?",
+        answer: "Try reducing screen use, keeping your room comfortable and dark, and doing something calm such as reading. If sleep problems continue often, talk to a trusted adult or healthcare professional."
+    },
+
+    {
+        question: "How can I stop procrastinating?",
+        answer: "Make the first step extremely small. Instead of trying to finish everything, decide exactly what you will do for the next five or ten minutes."
+    },
+
+    {
+        question: "How can I study faster?",
+        answer: "Focus on understanding rather than repeatedly reading. Use active recall, practise questions, short study sessions, and planned breaks."
+    },
+
+    {
+        question: "How can I remember what I study?",
+        answer: "Close your book and try to recall the information from memory. Then check what you missed and practise it again later."
+    },
+
+    {
+        question: "What is active recall?",
+        answer: "Active recall is a study method where you try to remember information without looking at the answer."
+    },
+
+    {
+        question: "What is spaced repetition?",
+        answer: "Spaced repetition means reviewing information at increasing intervals so that you remember it for longer."
+    },
+
+    {
+        question: "How can I make studying less boring?",
+        answer: "Mix different methods such as practice questions, explaining concepts aloud, drawing diagrams, quizzes, and short focused sessions."
+    },
+
+    {
+        question: "What should I do before an exam?",
+        answer: "Review important concepts, practise questions, check your mistakes, prepare your materials, and get enough sleep."
+    },
+
+    {
+        question: "What should I do if I forget everything during an exam?",
+        answer: "Take a slow breath, read the question carefully, start with something you know, and return to harder questions later."
+    },
+
+    {
+        question: "How can I improve my vocabulary?",
+        answer: "Read regularly, learn words in context, write your own sentences, and review new words several times."
+    },
+
+    {
+        question: "How can I improve my English speaking?",
+        answer: "Speak regularly, describe things around you, read aloud, listen to natural English, and practise expressing your ideas without translating every sentence."
+    },
+
+    {
+        question: "How can I become more creative?",
+        answer: "Expose yourself to different ideas, ask unusual questions, experiment, combine unrelated concepts, and allow yourself to make imperfect first attempts."
+    },
+
+    {
+        question: "What is brainstorming?",
+        answer: "Brainstorming is a method of generating many possible ideas before deciding which ones are useful."
+    },
+
+    {
+        question: "How do I choose between two ideas?",
+        answer: "Compare them using clear criteria such as usefulness, originality, feasibility, cost, time, and how well each solves the problem."
+    },
+
+    {
+        question: "How do I know if my idea is useful?",
+        answer: "Ask who would use it, what problem it solves, how often that problem happens, and whether your solution actually makes things easier."
+    },
+
+    {
+        question: "What makes an invention successful?",
+        answer: "A successful invention usually solves a meaningful problem, is practical to use, and provides value to its intended users."
+    },
+
+    {
+        question: "Can a simple idea be innovative?",
+        answer: "Yes. Innovation does not always mean complicated technology. A simple solution that solves a real problem in a new or better way can be innovative."
+    },
+
+    {
+        question: "How do I improve an idea?",
+        answer: "Test it, collect feedback, identify weaknesses, make changes, and test it again."
+    },
+
+    {
+        question: "What should I do if people criticize my project?",
+        answer: "Listen carefully to the criticism, separate useful feedback from personal opinions, and use relevant feedback to improve your project."
+    },
+
+    {
+        question: "What is a prototype?",
+        answer: "A prototype is an early version of an idea that is built so you can test how the idea works and improve it."
+    },
+
+    {
+        question: "Why is testing important?",
+        answer: "Testing helps you discover problems before the final version and shows whether your solution works as intended."
+    },
+
+    {
+        question: "What is a user test?",
+        answer: "A user test involves letting people try your product or prototype and observing what works well and what confuses them."
+    },
+
+    {
+        question: "How do I make a good presentation?",
+        answer: "Explain the problem, your idea, how it works, what makes it useful, the technology behind it, the challenges you faced, and what you would improve in the future."
+    },
+
+    {
+        question: "How do I answer a question I don't know?",
+        answer: "Be honest. You can say that you are not completely sure and explain what you do know instead of inventing an answer."
+    },
+
+    {
+        question: "How can I speak confidently?",
+        answer: "Understand your topic well, practise aloud, speak at a steady pace, make natural eye contact, and pause when you need to think."
+    },
+
+    {
+        question: "Give me a story plot.",
+        answer: "A student finds an old camera that takes photographs of events that have not happened yet."
+    },
+
+    {
+        question: "Give me a plot twist.",
+        answer: "The mysterious person helping the main character solve the mystery is actually the main character from the future."
+    },
+
+    {
+        question: "Give me a superhero idea.",
+        answer: "A superhero who cannot fly or become invisible but can instantly understand how any broken machine works."
+    },
+
+    {
+        question: "Give me a villain idea.",
+        answer: "A scientist who believes humans waste too many resources and secretly tries to force the world to live more sustainably."
+    },
+
+    {
+        question: "Give me a fantasy character.",
+        answer: "A young mapmaker whose drawings become real whenever someone traces a route on them."
+    },
+
+    {
+        question: "Give me a science fiction idea.",
+        answer: "A city discovers that its artificial intelligence has started designing solutions to problems nobody has reported yet."
+    },
+
+    {
+        question: "Give me a game idea.",
+        answer: "Create a game where players repair a damaged planet by completing missions involving recycling, energy, water, forests, and wildlife."
+    },
+
+    {
+        question: "Give me a simple game challenge.",
+        answer: "Design a game where the player has only 60 seconds to solve as many puzzles as possible."
+    },
+
+    {
+        question: "Give me a drawing challenge.",
+        answer: "Draw an animal that combines three completely different animals."
+    },
+
+    {
+        question: "Give me a writing challenge.",
+        answer: "Write a story using only 100 words and include a lost key, a strange message, and an unexpected visitor."
+    },
+
+    {
+        question: "Give me a creative invention.",
+        answer: "A smart school bag that checks whether important books and supplies are packed before the student leaves."
+    },
+
+    {
+        question: "Give me a futuristic invention.",
+        answer: "A reusable notebook that digitally saves handwritten pages while still feeling like ordinary paper."
+    },
+
+    {
+        question: "Give me a useless invention that is funny.",
+        answer: "An alarm clock that wakes you up by politely asking whether you would like to wake up."
+    },
+
+    {
+        question: "Give me something to do without my phone.",
+        answer: "Draw a map of your neighborhood from memory and then compare it with a real map later."
+    },
+
+    {
+        question: "Give me a five-minute challenge.",
+        answer: "Choose one object near you and list ten different things you could use it for."
+    },
+
+    {
+        question: "Give me a memory challenge.",
+        answer: "Look at ten objects for 30 seconds, cover them, and try to remember as many as possible."
+    },
+
+    {
+        question: "Give me a quick quiz.",
+        answer: "Question: Which planet is known for its rings? A) Mars B) Saturn C) Venus D) Mercury. Answer: B) Saturn."
+    },
+
+    {
+        question: "Give me a true or false question.",
+        answer: "True or false: Lightning is hotter than the surface of the Sun. Answer: True. A lightning channel can reach temperatures higher than the Sun's visible surface."
+    },
+
+    {
+        question: "Give me a multiple choice question.",
+        answer: "Which gas do plants mainly take in during photosynthesis? A) Oxygen B) Nitrogen C) Carbon dioxide D) Hydrogen. Answer: C) Carbon dioxide."
+    },
+
+    {
+        question: "Give me a math challenge.",
+        answer: "A number is doubled and then 6 is added to get 20. What is the number? Answer: 7."
+    },
+
+    {
+        question: "Give me a pattern puzzle.",
+        answer: "What comes next: 3, 6, 12, 24, 48? Answer: 96."
+    },
+
+    {
+        question: "Give me a difficult logic question.",
+        answer: "You have three boxes labelled Apples, Oranges, and Apples & Oranges. Every label is wrong. By taking one fruit from only one box, you can determine all the correct labels. Start with the box labelled Apples & Oranges."
+    },
+
+    {
+        question: "What is the difference between an idea and an invention?",
+        answer: "An idea is a concept or possibility. An invention is something created to turn an idea into a working solution."
+    },
+
+    {
+        question: "What is the difference between creativity and innovation?",
+        answer: "Creativity is generating new ideas. Innovation is applying ideas to create something useful or valuable."
+    },
+
+    {
+        question: "What is problem solving?",
+        answer: "Problem solving is the process of understanding a problem, finding possible solutions, testing them, and choosing or improving the most suitable solution."
+    },
+
+    {
+        question: "What is critical thinking?",
+        answer: "Critical thinking means examining information carefully, questioning assumptions, considering evidence, and reaching a reasoned conclusion."
+    },
+
+    {
+        question: "How do I check whether information is reliable?",
+        answer: "Check who published it, when it was published, what evidence it provides, whether other reliable sources agree, and whether the source has a clear reason for making the claim."
+    },
+
+    {
+        question: "What is plagiarism?",
+        answer: "Plagiarism is presenting someone else's words, ideas, or work as your own without giving proper credit."
+    },
+
+    {
+        question: "How can I avoid plagiarism?",
+        answer: "Use your own words, understand the information before writing, and give credit to the original source when you use someone else's ideas or exact words."
+    },
+
+    {
+        question: "How can I organize a big project?",
+        answer: "Break the project into smaller stages, create tasks for each stage, set priorities, collect resources, and review your progress regularly."
+    },
+
+    {
+        question: "What should I do first when starting a project?",
+        answer: "Clearly define the problem or goal before deciding on the final solution."
+    },
+
+    {
+        question: "What should I do if my project becomes too complicated?",
+        answer: "Return to the main goal, remove features that are not necessary, and focus on the simplest version that solves the problem well."
+    },
+
+    {
+        question: "How do I decide which features to add?",
+        answer: "Add features that directly support the main purpose of your project. Avoid adding features simply because they look interesting."
+    },
+
+    {
+        question: "Why should a project have one clear goal?",
+        answer: "A clear goal helps you decide what features belong in the project and prevents the project from becoming a collection of unrelated ideas."
+    },
+
+    {
+        question: "What makes a website user friendly?",
+        answer: "A user-friendly website is easy to understand, has clear navigation, readable content, consistent design, useful feedback, and simple interactions."
+    },
+
+    {
+        question: "What should I do when a website has a bug?",
+        answer: "Reproduce the problem, check what changed recently, inspect the error, isolate the cause, make one change at a time, and test again."
+    },
+
+    {
+        question: "What does a 404 error mean?",
+        answer: "A 404 error usually means the server could not find the requested page or resource."
+    },
+
+    {
+        question: "What is an API?",
+        answer: "An API is a way for different software systems to communicate and request or exchange information."
+    },
+
+    {
+        question: "Why are APIs useful?",
+        answer: "APIs allow developers to use data or services from another system without having to build that entire service themselves."
+    },
+
+    {
+        question: "What is a database?",
+        answer: "A database is an organized collection of information that software can store, retrieve, and manage."
+    },
+
+    {
+        question: "What is a frontend?",
+        answer: "The frontend is the part of a website or application that users see and interact with."
+    },
+
+    {
+        question: "What is a backend?",
+        answer: "The backend handles behind-the-scenes work such as processing requests, managing data, and communicating with other services."
+    },
+
+    {
+        question: "What is JavaScript used for?",
+        answer: "JavaScript adds behavior and interactivity to websites, such as buttons, forms, dynamic content, timers, and API requests."
+    },
+
+    {
+        question: "What is HTML used for?",
+        answer: "HTML provides the structure and content of a web page."
+    },
+
+    {
+        question: "What is CSS used for?",
+        answer: "CSS controls the appearance and layout of a web page, including colors, spacing, fonts, and responsive design."
+    },
+
+    {
+        question: "What is Node.js?",
+        answer: "Node.js allows JavaScript code to run outside the browser, including on a server."
+    },
+
+    {
+        question: "What is Express?",
+        answer: "Express is a Node.js framework that provides convenient tools for creating servers, routes, and handling requests."
+    },
+
+    {
+        question: "What is GitHub?",
+        answer: "GitHub is a platform for storing code in repositories, tracking changes, collaborating, and managing software projects."
+    },
+
+    {
+        question: "What is deployment?",
+        answer: "Deployment means making an application available in an environment where users can access and use it."
+    },
+
+    {
+        question: "What is a web app?",
+        answer: "A web app is software that users access through a web browser and that can provide interactive features similar to an application."
+    },
+
+    {
+        question: "What should I do when I feel overwhelmed?",
+        answer: "Pause, identify the most important thing, break it into a small first step, and focus only on that step."
+    },
+
+    {
+        question: "How do I take a useful break?",
+        answer: "Step away from the task, stretch, drink water, walk around, rest your eyes, or do something calm before returning."
+    },
+
+    {
+        question: "Why are breaks important?",
+        answer: "Breaks can help reduce mental fatigue and make it easier to return to a task with attention."
+    },
+
+    {
+        question: "How can I avoid distractions while working?",
+        answer: "Keep only the tools you need open, silence unnecessary notifications, set a specific goal, and work for a defined period before taking a break."
+    },
+
+    {
+        question: "How do I start a task I really don't want to do?",
+        answer: "Make the first step extremely small. Tell yourself you only need to begin, not finish the entire task."
+    },
+
+    {
+        question: "What should I do after completing a goal?",
+        answer: "Take a moment to recognize your progress, review what worked, and decide what your next useful step is."
+    },
+
+    {
+        question: "Can failure be useful?",
+        answer: "Yes. Failure can reveal what does not work and provide information that helps you improve your next attempt."
+    },
+
+    {
+        question: "What is the best way to learn something new?",
+        answer: "Understand the basics, practise actively, make mistakes, get feedback, and return to the material regularly."
+    },
+
+    {
+        question: "How can I make a boring task more interesting?",
+        answer: "Turn it into a challenge, divide it into short sessions, track your progress, or connect it to a goal you care about."
+    },
+
+    {
+        question: "Give me a random question.",
+        answer: "If you could instantly master one skill, which skill would you choose and how would you use it?"
+    },
+
+    {
+        question: "Ask me something interesting.",
+        answer: "If you could visit any point in Earth's history for one day, when would you go and why?"
+    },
+
+    {
+        question: "Ask me a philosophical question.",
+        answer: "If a machine could perfectly predict every decision you would make, would you still feel that you have complete freedom of choice?"
+    },
+
+    {
+        question: "Give me a question to think about.",
+        answer: "If you could solve one problem in your school or community, which problem would you choose and why?"
+    },
+
+    {
+        question: "What is something I can learn in ten minutes?",
+        answer: "You could learn basic Morse code, a few phrases in another language, a simple memory technique, or the basics of a new topic."
+    },
+
+    {
+        question: "Give me a mini mission.",
+        answer: "Mission: find one problem around you today and write down three possible solutions before choosing the best one."
+    },
+
+    {
+        question: "Give me an environmental challenge.",
+        answer: "For one day, track every piece of waste you create and identify three things you could reduce, reuse, or recycle."
+    },
+
+    {
+        question: "Give me a kindness challenge.",
+        answer: "Do one helpful thing for someone without expecting anything in return."
+    },
+
+    {
+        question: "Give me a creativity mission.",
+        answer: "Take an ordinary object and redesign it so that it solves a completely different problem."
+    },
+
+    {
+        question: "Give me a productivity mission.",
+        answer: "Choose one important task and work on it without unnecessary notifications or app switching for the next 20 minutes."
+    },
+{
+    question: "Give me a long, slightly chilling story.",
+    answer: `The House at the End of the Road
+
+When Aarav first noticed the house, he thought it was abandoned.
+
+It stood at the very end of a narrow road that disappeared into a forest. The house was old, with faded blue walls, broken windows, and a wooden porch that leaned slightly to one side. Nobody in the village ever went near it.
+
+Aarav had lived in the village for three years, but he had never paid much attention to the house until one rainy evening when his bicycle chain broke.
+
+It was getting dark.
+
+He was still several kilometers from home, and the rain had become heavier. As he pushed his bicycle along the road, he noticed a warm yellow light glowing from one of the windows of the old house.
+
+He stopped.
+
+The house was supposed to be empty.
+
+Aarav stared at the window.
+
+The curtain moved.
+
+Then the light disappeared.
+
+He told himself it was probably the wind.
+
+He continued walking.
+
+A few minutes later, he heard a sound behind him.
+
+Knock.
+
+He turned around.
+
+Nothing.
+
+He kept walking.
+
+Knock.
+
+This time, the sound came from the direction of the house.
+
+Aarav looked back.
+
+The front door of the house was open.
+
+He had never seen it open before.
+
+Rainwater ran down his face as he stood there wondering what to do.
+
+Then he heard something that made him freeze.
+
+"Aarav?"
+
+Someone had called his name.
+
+He slowly turned toward the house.
+
+There was nobody on the porch.
+
+"Aarav?"
+
+The voice came again.
+
+It sounded like an old woman.
+
+He should have run.
+
+Instead, he walked toward the house.
+
+The porch creaked beneath his feet. He pushed the door open.
+
+Inside, everything was strangely clean.
+
+There was a wooden table, an old clock, several photographs, and a staircase leading upstairs.
+
+On the table was a cup of hot tea.
+
+Aarav stared at it.
+
+Steam was still rising from the cup.
+
+Beside it was a small piece of paper.
+
+His name was written on it.
+
+AARAV.
+
+His heart began beating faster.
+
+He picked up the paper.
+
+Under his name were four words:
+
+"YOU CAME BACK AGAIN."
+
+Aarav dropped it.
+
+He suddenly remembered something.
+
+When he was six years old, his family had visited this village.
+
+He had almost no memories from that trip.
+
+But there was one thing he remembered.
+
+A blue house.
+
+A woman standing in a doorway.
+
+And someone telling him:
+
+"Don't go upstairs."
+
+Aarav looked toward the staircase.
+
+The old clock suddenly began ticking.
+
+Tick.
+
+Tick.
+
+Tick.
+
+He hadn't noticed it before.
+
+Then it struck eleven.
+
+One.
+
+Two.
+
+Three.
+
+Four.
+
+Five.
+
+Six.
+
+Seven.
+
+Eight.
+
+Nine.
+
+Ten.
+
+Eleven.
+
+And then it stopped.
+
+Aarav stared at the clock.
+
+There was no twelfth chime.
+
+Instead, he heard footsteps upstairs.
+
+Slow footsteps.
+
+One step.
+
+Then another.
+
+Then another.
+
+Aarav backed toward the door.
+
+The footsteps stopped.
+
+A voice whispered from upstairs.
+
+"You forgot something."
+
+Aarav ran.
+
+He grabbed his bicycle and sprinted down the road without looking back.
+
+He didn't stop until he reached the village.
+
+When he finally reached home, his mother was waiting at the door.
+
+The moment she saw him, her face went pale.
+
+"Where were you?"
+
+Aarav told her everything.
+
+The house.
+
+The tea.
+
+The note.
+
+The voice.
+
+His mother's expression changed when he mentioned the note.
+
+"What did it say?"
+
+Aarav repeated the words.
+
+"You came back again."
+
+His mother went completely silent.
+
+Then she asked:
+
+"Did you go upstairs?"
+
+"No."
+
+She closed her eyes.
+
+"Good."
+
+Aarav stared at her.
+
+"What is that house?"
+
+His mother didn't answer.
+
+Instead, she went into the bedroom and returned with an old photograph.
+
+She handed it to him.
+
+It was a photograph of their family.
+
+Aarav recognized himself as a little boy.
+
+His mother.
+
+His father.
+
+And behind them...
+
+The blue house.
+
+Aarav's hands began shaking.
+
+"Where was this taken?"
+
+His mother whispered:
+
+"Here."
+
+Aarav looked at the photograph again.
+
+Something was wrong.
+
+There was another person standing behind them.
+
+A woman.
+
+She was smiling.
+
+Aarav looked at his mother.
+
+"Who is she?"
+
+His mother took the photograph away.
+
+"Nobody."
+
+But Aarav knew she was lying.
+
+That night, he couldn't sleep.
+
+At exactly 2:13 a.m., he heard a sound outside his bedroom.
+
+Knock.
+
+He sat up.
+
+Knock.
+
+He looked at the window.
+
+Nothing.
+
+Then his phone lit up.
+
+A message had arrived.
+
+There was no number.
+
+Only four words.
+
+"YOU LEFT TOO SOON."
+
+Aarav didn't sleep for the rest of the night.
+
+The next morning, he went to the village library and searched through old newspapers.
+
+After several hours, he found an article from twenty years earlier.
+
+It was about a family that had disappeared.
+
+The photograph attached to the article showed the same blue house.
+
+Aarav read the article.
+
+Three people had disappeared.
+
+A father.
+
+A mother.
+
+And their six-year-old son.
+
+The son was named Aarav.
+
+Aarav stopped breathing.
+
+That couldn't be possible.
+
+He checked the date.
+
+Twenty years ago.
+
+He checked the photograph.
+
+The boy in the photograph looked exactly like him.
+
+He ran home.
+
+His mother was sitting at the kitchen table.
+
+He placed the newspaper in front of her.
+
+"Tell me the truth."
+
+She looked at the article.
+
+Then she began to cry.
+
+"You were six years old," she whispered.
+
+"We went to that house."
+
+"Your father disappeared first."
+
+"Then you disappeared."
+
+"I searched for you for hours."
+
+"When I finally found you..."
+
+She stopped.
+
+"What happened?"
+
+His mother looked directly into his eyes.
+
+"You were standing upstairs."
+
+Aarav felt cold.
+
+"You were standing in front of a mirror."
+
+"You weren't alone."
+
+"Someone was standing behind you."
+
+"Who?"
+
+His mother whispered:
+
+"The woman from the photograph."
+
+Aarav stared at her.
+
+"What happened next?"
+
+"You turned around."
+
+"And then?"
+
+His mother looked down.
+
+"You weren't yourself anymore."
+
+The room became silent.
+
+Aarav didn't understand.
+
+His mother continued.
+
+"After that night, we left the village."
+
+"But you forgot everything."
+
+"At least, that's what I thought."
+
+Aarav looked toward the window.
+
+The sky outside had become dark.
+
+It wasn't even evening.
+
+Then he heard the clock in the hallway.
+
+Tick.
+
+Tick.
+
+Tick.
+
+His mother suddenly stood up.
+
+"Don't listen."
+
+Aarav looked at her.
+
+"Listen to what?"
+
+The clock stopped.
+
+A voice came from upstairs.
+
+"Aarav."
+
+His mother grabbed his arm.
+
+"Don't answer."
+
+The voice came again.
+
+"Aarav."
+
+This time, it sounded exactly like his own voice.
+
+Aarav looked toward the staircase.
+
+At the top stood a little boy.
+
+Six years old.
+
+Wearing the same clothes Aarav had worn in the old photograph.
+
+The boy smiled.
+
+Then he said:
+
+"You forgot me."
+
+Aarav couldn't move.
+
+The boy slowly pointed toward the window.
+
+Far away, at the end of the road, the blue house stood in the darkness.
+
+Every window was glowing.
+
+And in the highest window...
+
+A woman was watching them.
+
+Aarav's mother whispered:
+
+"Whatever happens, don't go back."
+
+The little boy smiled again.
+
+Then the lights in the house went out.
+
+Aarav looked away for only a second.
+
+When he looked back at the staircase...
+
+The boy was gone.
+
+But on the floor was a wet trail of footprints.
+
+They started at the front door.
+
+They crossed the hallway.
+
+They climbed the stairs.
+
+And stopped outside Aarav's bedroom.
+
+Aarav slowly looked at his mother.
+
+She was staring at the footprints too.
+
+Neither of them spoke.
+
+Then, from inside Aarav's bedroom, came three quiet knocks.
+
+Knock.
+
+Knock.
+
+Knock.
+
+Aarav's phone buzzed.
+
+Another message.
+
+This time there was only one sentence:
+
+"NEXT TIME, STAY UNTIL MIDNIGHT."
+
+And at the bottom of the message was a photograph.
+
+It showed the blue house.
+
+Taken from inside Aarav's bedroom.
+
+The last thing Aarav noticed was the reflection in the window.
+
+Behind him stood the little boy.
+
+Smiling.
+
+And beside the boy stood the woman.
+
+But when Aarav turned around...
+
+There was nobody there.`
+}
 ];
 
-export default uniKnowledge;
+export default newUniQuestions;

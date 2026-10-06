@@ -357,7 +357,7 @@ async function sendMessage() {
 
     try {
 
-        const response = await fetch("/api/chat", {
+        const response = await fetch("https://unicanvas.onrender.com/api/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -1489,284 +1489,246 @@ taskInput?.addEventListener(
 );
 
 
+
+
 /* =========================================================
-   FOCUS TIMER
+   UNICANVAS — FOCUS TIMER
 ========================================================= */
 
-/* =========================================
-   UNICANVAS FOCUS MODE
-   ========================================= */
+(() => {
 
-let totalSeconds = 15 * 60;
-let selectedDuration = 15;
+    const timerDisplay = document.getElementById("timer");
+    const startButton = document.getElementById("startTimer");
+    const resetButton = document.getElementById("resetTimer");
+    const durationSelect = document.getElementById("focusDuration");
+    const statusDisplay = document.getElementById("focusStatus");
 
-let timerInterval = null;
-let sessions = 0;
+    const sessionsDisplay = document.getElementById("sessions");
+    const pointsDisplay = document.getElementById("focusPoints");
+    const minutesDisplay = document.getElementById("focusMinutes");
 
-let focusPoints = 0;
-let focusMinutes = 0;
-
-let focusRunning = false;
-
-const timerDisplay =
-  document.getElementById("timer");
-
-const focusStatus =
-  document.getElementById("focusStatus");
-
-const startTimer =
-  document.getElementById("startTimer");
-
-const resetTimer =
-  document.getElementById("resetTimer");
-
-const focusDuration =
-  document.getElementById("focusDuration");
-
-const sessionDisplay =
-  document.getElementById("sessions");
-
-const focusPointsDisplay =
-  document.getElementById("focusPoints");
-
-const focusMinutesDisplay =
-  document.getElementById("focusMinutes");
-
-
-/* -----------------------------------------
-   LOAD PROJECTS
-   ----------------------------------------- */
-
-
-
-/* -----------------------------------------
-   TIMER DISPLAY
-   ----------------------------------------- */
-
-function updateTimer() {
-
-  if (!timerDisplay) return;
-
-  const minutes =
-    Math.floor(totalSeconds / 60);
-
-  const seconds =
-    totalSeconds % 60;
-
-  timerDisplay.textContent =
-    `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-
-}
-
-
-/* -----------------------------------------
-   DURATION CHANGE
-   ----------------------------------------- */
-
-focusDuration?.addEventListener(
-  "change",
-  () => {
-
-    if (focusRunning) {
-
-      focusStatus.textContent =
-        "Pause or reset the session before changing the duration.";
-
-      focusDuration.value =
-        String(selectedDuration);
-
-      return;
-
+    // Stop if the Focus section does not exist
+    if (
+        !timerDisplay ||
+        !startButton ||
+        !resetButton ||
+        !durationSelect
+    ) {
+        return;
     }
 
-    selectedDuration =
-      Number(focusDuration.value) || 15;
+    let durationMinutes =
+        Number(durationSelect.value) || 15;
 
-    totalSeconds =
-      selectedDuration * 60;
+    let remainingSeconds =
+        durationMinutes * 60;
 
-    updateTimer();
+    let timerInterval = null;
+    let running = false;
 
-    focusStatus.textContent =
-      `${selectedDuration} minute focus session ready.`;
-
-  }
-);
+    let sessions = 0;
+    let points = 0;
+    let minutes = 0;
 
 
-/* -----------------------------------------
-   START / PAUSE / RESUME
-   ----------------------------------------- */
+    function updateDisplay() {
 
-startTimer?.addEventListener(
-  "click",
-  () => {
+        const mins =
+            Math.floor(remainingSeconds / 60);
 
-    /* PAUSE */
+        const secs =
+            remainingSeconds % 60;
 
-    if (timerInterval) {
-
-      clearInterval(timerInterval);
-
-      timerInterval = null;
-
-      focusRunning = false;
-
-      startTimer.textContent =
-        "Resume Focus";
-
-      focusStatus.textContent =
-        "Paused. Your progress is saved.";
-
-      return;
-
+        timerDisplay.textContent =
+            `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
     }
 
 
-    /* DON'T START WITHOUT A PROJECT */
+    function updateStats() {
 
-    if (focusProject && !focusProject.value) {
+        if (sessionsDisplay) {
+            sessionsDisplay.textContent = sessions;
+        }
 
-      focusStatus.textContent =
-        "Choose a project before starting Focus Mode.";
+        if (pointsDisplay) {
+            pointsDisplay.textContent = points;
+        }
 
-      focusProject.focus();
-
-      return;
-
+        if (minutesDisplay) {
+            minutesDisplay.textContent = minutes;
+        }
     }
 
 
-    /* SESSION FINISHED */
+    function stopTimer() {
 
-    if (totalSeconds <= 0) {
+        if (timerInterval !== null) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
 
-      totalSeconds =
-        selectedDuration * 60;
-
-      updateTimer();
-
+        running = false;
     }
 
 
-    /* START */
+    function resetCurrentSession() {
 
-    focusRunning = true;
+        stopTimer();
 
-    focusStatus.textContent =
-      "Focus mode is active. ✦";
+        durationMinutes =
+            Number(durationSelect.value) || 15;
 
-    startTimer.textContent =
-      "Pause";
+        remainingSeconds =
+            durationMinutes * 60;
+
+        updateDisplay();
+
+        startButton.textContent =
+            "Start Focus";
+
+        if (statusDisplay) {
+            statusDisplay.textContent =
+                "Ready when you are.";
+        }
+    }
 
 
-    timerInterval =
-      setInterval(
+    durationSelect.addEventListener(
+        "change",
         () => {
 
-          if (totalSeconds <= 0) {
+            if (running) {
 
-            clearInterval(
-              timerInterval
-            );
+                durationSelect.value =
+                    String(durationMinutes);
 
-            timerInterval = null;
+                if (statusDisplay) {
+                    statusDisplay.textContent =
+                        "Pause the session before changing the duration.";
+                }
 
-            focusRunning = false;
-
-            sessions++;
-
-            focusPoints += selectedDuration;
-
-            focusMinutes += selectedDuration;
-
-
-            if (sessionDisplay) {
-
-              sessionDisplay.textContent =
-                sessions;
-
+                return;
             }
 
+            durationMinutes =
+                Number(durationSelect.value) || 15;
 
-            if (focusPointsDisplay) {
+            remainingSeconds =
+                durationMinutes * 60;
 
-              focusPointsDisplay.textContent =
-                focusPoints;
+            updateDisplay();
 
+            if (statusDisplay) {
+                statusDisplay.textContent =
+                    `${durationMinutes} minute focus session ready.`;
             }
-
-
-            if (focusMinutesDisplay) {
-
-              focusMinutesDisplay.textContent =
-                focusMinutes;
-
-            }
-
-
-            startTimer.textContent =
-              "Start Focus";
-
-            focusStatus.textContent =
-              `Amazing! You completed ${selectedDuration} minutes of focus. ✦`;
-
-            return;
-
-          }
-
-
-          totalSeconds--;
-
-          updateTimer();
-
-        },
-        1000
-      );
-
-  }
-);
-
-
-/* -----------------------------------------
-   RESET
-   ----------------------------------------- */
-
-resetTimer?.addEventListener(
-  "click",
-  () => {
-
-    clearInterval(
-      timerInterval
+        }
     );
 
-    timerInterval = null;
 
-    focusRunning = false;
+    startButton.addEventListener(
+        "click",
+        () => {
 
-    selectedDuration =
-      Number(focusDuration?.value) || 15;
+            // PAUSE
+            if (running) {
 
-    totalSeconds =
-      selectedDuration * 60;
+                stopTimer();
 
-    updateTimer();
+                startButton.textContent =
+                    "Resume Focus";
 
-    startTimer.textContent =
-      "Start Focus";
+                if (statusDisplay) {
+                    statusDisplay.textContent =
+                        "Paused. Your progress is saved.";
+                }
 
-    focusStatus.textContent =
-      "Ready when you are.";
-
-  }
-);
+                return;
+            }
 
 
-/* -----------------------------------------
-   INITIAL DISPLAY
-   ----------------------------------------- */
+            // COMPLETED SESSION → start a new one
+            if (remainingSeconds <= 0) {
 
-updateTimer();
+                durationMinutes =
+                    Number(durationSelect.value) || 15;
+
+                remainingSeconds =
+                    durationMinutes * 60;
+
+                updateDisplay();
+            }
+
+
+            // START / RESUME
+            running = true;
+
+            startButton.textContent =
+                "Pause";
+
+            if (statusDisplay) {
+                statusDisplay.textContent =
+                    "Focus mode is active. ✦";
+            }
+
+
+            timerInterval =
+                setInterval(
+                    () => {
+
+                        if (remainingSeconds > 0) {
+
+                            remainingSeconds--;
+
+                            updateDisplay();
+
+                            return;
+                        }
+
+
+                        // SESSION COMPLETE
+                        stopTimer();
+
+                        sessions++;
+
+                        points +=
+                            durationMinutes;
+
+                        minutes +=
+                            durationMinutes;
+
+                        updateStats();
+
+                        startButton.textContent =
+                            "Start Focus";
+
+                        if (statusDisplay) {
+                            statusDisplay.textContent =
+                                `Amazing! You completed ${durationMinutes} minutes of focus. ✦`;
+                        }
+
+                    },
+                    1000
+                );
+        }
+    );
+
+
+    resetButton.addEventListener(
+        "click",
+        () => {
+
+            resetCurrentSession();
+
+        }
+    );
+
+
+    // Initial state
+    updateDisplay();
+    updateStats();
+
+})();
 
 /* =========================================================
    GLOBAL SEARCH

@@ -3962,3 +3962,311 @@ body {
     color: #bdaaff;
     font-size: 11px;
   }
+/* =========================================================
+   UNICANVAS — FINAL CSS POLISH
+   Add this at the VERY BOTTOM of Style.css
+========================================================= */
+
+
+/* -----------------------------------------
+   SMOOTH INTERACTIONS
+----------------------------------------- */
+
+button,
+.nav-item,
+.quick-card,
+.tool-card,
+.info-card,
+.video-card,
+.project-card,
+.resource-card,
+.icon-btn,
+.user-btn,
+.link-btn {
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease,
+        opacity 0.18s ease;
+}
+
+
+/* -----------------------------------------
+   BUTTON POLISH
+----------------------------------------- */
+
+button {
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid rgba(150, 120, 255, 0.75);
+    outline-offset: 2px;
+}
+
+
+/* -----------------------------------------
+   NAVIGATION
+----------------------------------------- */
+
+.nav-item:hover {
+    transform: translateX(3px);
+}
+
+.nav-item.active {
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+
+/* -----------------------------------------
+   CARDS
+----------------------------------------- */
+
+.info-card:hover,
+.video-card:hover,
+.project-card:hover,
+.resource-card:hover,
+.tool-card:hover,
+.quick-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+
+/* -----------------------------------------
+   QUICK CARDS
+----------------------------------------- */
+
+.quick-card {
+    min-height: 120px;
+}
+
+.quick-card:hover {
+    border-color: rgba(150, 120, 255, 0.45);
+}
+
+
+/* -----------------------------------------
+   INPUTS
+----------------------------------------- */
+
+input,
+textarea,
+select {
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: rgba(150, 120, 255, 0.65);
+    box-shadow:
+        0 0 0 3px rgba(150, 120, 255, 0.10);
+}
+
+
+/* -----------------------------------------
+   AI CHAT
+----------------------------------------- */
+
+.chat-input button {
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.chat-input button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.16);
+}
+
+
+/* -----------------------------------------
+   FOCUS PAGE
+----------------------------------------- */
+
+#focus .page-head {
+    margin-bottom: 24px;
+}
+
+#focus button {
+    min-height: 42px;
+}
+
+#timer {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+}
+
+
+/* -----------------------------------------
+   EMPTY / STATUS TEXT
+----------------------------------------- */
+
+.empty-state,
+.empty-message {
+    padding: 32px 20px;
+    text-align: center;
+    opacity: 0.78;
+}
+
+.empty-state p,
+.empty-message p {
+    max-width: 520px;
+    margin: 8px auto 0;
+}
+
+
+/* -----------------------------------------
+   LINKS
+----------------------------------------- */
+
+.link-btn:hover {
+    transform: translateX(3px);
+}
+
+
+/* -----------------------------------------
+   TOP SEARCH
+----------------------------------------- */
+
+.search input {
+    min-width: 0;
+}
+
+.search:focus-within {
+    box-shadow:
+        0 0 0 3px rgba(150, 120, 255, 0.08);
+}
+
+
+/* -----------------------------------------
+   IMAGE / VIDEO CARDS
+----------------------------------------- */
+
+.video-thumb {
+    overflow: hidden;
+}
+
+.video-card:hover .video-thumb {
+    transform: scale(1.01);
+}
+
+
+/* -----------------------------------------
+   RESPONSIVE POLISH
+----------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .page-head {
+        margin-bottom: 20px;
+    }
+
+    .quick-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ai-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .content {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .page-head h1 {
+        font-size: 28px;
+    }
+
+    .page-head p {
+        line-height: 1.55;
+    }
+
+    .quick-row {
+        grid-template-columns: 1fr;
+    }
+
+    .result-grid,
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        gap: 10px;
+    }
+
+    .search {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .search kbd {
+        display: none;
+    }
+
+    .user-name {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 420px) {
+
+    .content {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .page-head h1 {
+        font-size: 25px;
+    }
+
+    .quick-card {
+        min-height: 105px;
+    }
+
+    #timer {
+        font-size: 42px;
+    }
+
+}
+
+
+/* -----------------------------------------
+   REDUCE MOTION
+----------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+}
