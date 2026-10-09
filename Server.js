@@ -27,7 +27,6 @@ function findKnowledgeAnswer(userMessage) {
 
     const normalizedUserMessage =
         normalize(userMessage);
-    const normalizedMessage = normalize(userMessage);
 
     // Aarav horror story
     if (
@@ -63,7 +62,7 @@ function findKnowledgeAnswer(userMessage) {
             return (
                 question === normalizedUserMessage ||
                 normalizedUserMessage.includes(question) ||
-                question.includes(normalizedUserMessage)
+                question.includes(normalizedUserMessage) 
             );
 
         });
