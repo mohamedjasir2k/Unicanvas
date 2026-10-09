@@ -369,7 +369,7 @@ app.post("/api/chat", (req, res) => {
 
     const userMessage = req.body?.message || "";
 
-    const answer = finduniKnowledgeAnswer(userMessage);
+    const answer = findKnowledgeAnswer(userMessage);
 
     if (answer) {
         return res.json({
