@@ -27,6 +27,7 @@ function findKnowledgeAnswer(userMessage) {
 
     const normalizedUserMessage =
         normalize(userMessage);
+    const normalizedMessage = normalize(userMessage);
 
     // Aarav horror story
     if (
