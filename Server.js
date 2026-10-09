@@ -365,22 +365,30 @@ function findKnowledgeAnswer(userMessage) {
 
     return null;
 }
+
 app.post("/api/chat", (req, res) => {
+    const userMessage =
+        req.body?.message ||
+        req.body?.messages?.filter(
+            item => item?.role === "user"
+        ).at(-1)?.content ||
+        "";
 
-    const userMessage = req.body?.message || "";
-
-    const answer = findKnowledgeAnswer(userMessage);
-
-    if (answer) {
-        return res.json({
-            answer: answer
+    if (!String(userMessage).trim()) {
+        return res.status(400).json({
+            answer: "Please enter a message.",
+            reply: "Please enter a message."
         });
     }
 
-    return res.json({
-        answer: "I don't have an answer for that yet. Try asking me about brainstorming, project ideas, research, presentations, innovation, focus, or UniCanvas."
-    });
+    const answer = findKnowledgeAnswer(userMessage) ||
+        "I don't have an answer for that yet. Try asking me about brainstorming, project ideas, research, presentations, innovation, focus, or UniCanvas.";
 
+    // Support both the old and current frontend response formats.
+    return res.json({
+        answer,
+        reply: answer
+    });
 });
 const PORT = process.env.PORT || 3000;
 
